@@ -9,21 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class HaushaltsbuchVerwaltung {
 	public List<Buchung> alleBuchungen = new ArrayList<>();
-	
-	
 
 	public HaushaltsbuchVerwaltung() {
-	
 		alleBuchungenLaden();
 	}
 
 	public void buchungAnlegen(Buchung buchung) {
 		alleBuchungen.add(buchung);
 		System.out.println("Buchung angelegt");
-  
 	}
 
 	public void alleBuchungenAnzeigen() {
@@ -43,8 +38,6 @@ public class HaushaltsbuchVerwaltung {
 			alleBuchungen.remove((nummer - 1));		
 			System.out.println("Buchung gelöscht");
 		}
-		
-		
 	}
 
 	public void buchungBearbeiten(int nummer, Buchung buchung) {
@@ -68,12 +61,13 @@ public class HaushaltsbuchVerwaltung {
 			} else {
 				kontostand -= betrag;
 			}
-
 		}
 		System.out.format("Kontostand: %.2f€\n", kontostand);
 	}
 
 	public void alleBuchungenSpeichern() {
+		System.out.println(System.getProperty("user.dir"));
+
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\buchungen.csv"))) {
 			for (int i = 0; i < alleBuchungen.size(); i++) {
@@ -82,16 +76,12 @@ public class HaushaltsbuchVerwaltung {
 						+ alleBuchungen.get(i).getBeschreibung());
 				
 					bw.newLine();
-				
-	
 			}
-			
 			System.out.println("Buchungen erfolgreich gespeichert\n");
 
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Fehler");
-
 		}
 	}
 
@@ -118,9 +108,8 @@ public class HaushaltsbuchVerwaltung {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Fehler");
-
-
-	}}
+	}
+		}
 	public void monatsAuswertung(int monat) {
 		double einnahmen = 0;
 		double ausgaben = 0;
@@ -134,9 +123,7 @@ public class HaushaltsbuchVerwaltung {
 					ausgaben += alleBuchungen.get(i).getBetrag();
 
 				}
-			
 			}
-			
 		}
 		if(einnahmen == 0 && ausgaben == 0) {
 			System.out.println("Keine Buchung im monat " + monat);
@@ -147,14 +134,6 @@ public class HaushaltsbuchVerwaltung {
 		System.out.format("Deine Ausgaben für den Monat %d ist: %.2f€\n",monat,ausgaben );
 		System.out.format("Dein Saldo für den Monat %d ist: %.2f€\n",monat,saldo );
 		}
-		
-		
-		
-		
-		
+			
 	}
-	
-	
-	// fehlertoleranz
-	// Centgenauigkeit
 }
