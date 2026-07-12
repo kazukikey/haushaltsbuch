@@ -66,7 +66,7 @@ public class HaushaltsbuchVerwaltung {
 	}
 
 	public void alleBuchungenSpeichern() {
-		System.out.println(System.getProperty("user.dir"));
+		
 
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\buchungen.csv"))) {
