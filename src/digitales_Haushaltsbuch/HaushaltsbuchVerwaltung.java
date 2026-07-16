@@ -71,7 +71,7 @@ public class HaushaltsbuchVerwaltung {
 		
 
 
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\buchungen.csv"))) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("buchungen.csv"))) {
 			for (int i = 0; i < alleBuchungen.size(); i++) {
 				bw.write(alleBuchungen.get(i).getDatum() + "," + alleBuchungen.get(i).getBetrag() + ","
 						+ alleBuchungen.get(i).getTyp() + "," + alleBuchungen.get(i).getKategorie() + ","
@@ -88,7 +88,7 @@ public class HaushaltsbuchVerwaltung {
 	}
 
 	public void alleBuchungenLaden() {
-		try (BufferedReader r = new BufferedReader(new FileReader("src\\buchungen.csv"))) {
+		try (BufferedReader r = new BufferedReader(new FileReader("buchungen.csv"))) {
 			System.out.println("Laden startet...");
 
 			
