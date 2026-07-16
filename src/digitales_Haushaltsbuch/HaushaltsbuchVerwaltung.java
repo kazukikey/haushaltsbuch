@@ -22,6 +22,8 @@ public class HaushaltsbuchVerwaltung {
 	}
 
 	public void alleBuchungenAnzeigen() {
+		
+		
 		System.out.println("Nr. | Datum      | Betrag   | Typ       | Kategorie    | Beschreibung");
 		System.out.println("----|------------|----------|-----------|--------------|-------------");
 		for (int i = 0; i < alleBuchungen.size(); i++) {

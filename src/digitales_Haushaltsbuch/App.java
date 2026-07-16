@@ -12,6 +12,7 @@ public class App {
 	public static void start() {
 		HaushaltsbuchVerwaltung haushaltsbuchVerwaltung = new HaushaltsbuchVerwaltung();
 		Scanner myObj = new Scanner(System.in);
+		
 		punkteNennen();
 		
 		int userAnfrage = myObj.nextInt();  // Read user input
@@ -48,7 +49,6 @@ public class App {
 				case(2):
 					haushaltsbuchVerwaltung.alleBuchungenAnzeigen();
 					
-					
 					break;
 				case(3):
 					haushaltsbuchVerwaltung.alleBuchungenAnzeigen();
@@ -80,9 +80,6 @@ public class App {
 						}
 						break;	
 					
-					
-					
-					
 				case(4):
 					haushaltsbuchVerwaltung.alleBuchungenAnzeigen();
 					System.out.println("Welche Buchung soll gelöscht werden(Nummer): ");
@@ -99,21 +96,16 @@ public class App {
 				case(6):
 					haushaltsbuchVerwaltung.kontostand();
 					
-					break;
-						
+					break;	
 				default: 
 					System.out.println("Ungültige Zahl");
-				
-				
 			}
 			punkteNennen();
 			userAnfrage = myObj.nextInt();
 			myObj.nextLine();
-
 		}
 		haushaltsbuchVerwaltung.alleBuchungenSpeichern();
 		System.out.println("beendet");
-
 	}
 	
 	public static void punkteNennen() {
