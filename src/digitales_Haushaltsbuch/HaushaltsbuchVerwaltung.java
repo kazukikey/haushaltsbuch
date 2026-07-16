@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class HaushaltsbuchVerwaltung {
-	public List<Buchung> alleBuchungen = new ArrayList<>();
+	private List<Buchung> alleBuchungen = new ArrayList<>();
 
 	public HaushaltsbuchVerwaltung() {
 		alleBuchungenLaden();
