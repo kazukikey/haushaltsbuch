@@ -22,16 +22,37 @@ public class HaushaltsbuchVerwaltung {
 	}
 
 	public void alleBuchungenAnzeigen() {
+		if(alleBuchungen.isEmpty()) {
+			System.out.println("Keine Buchungen vorhanden");
+		}
+		else {
+			alleBuchungen.sort((b1,b2) -> {
+				int jahr = Integer.compare(b1.getJahrFromDatum(b1.getDatum()),b2.getJahrFromDatum(b2.getDatum()));
+				if(jahr != 0) {
+					return jahr;
+				}
+				
+				int monat = Integer.compare(b1.getMonatFromDatum(b1.getDatum()),b2.getMonatFromDatum(b2.getDatum()));
+				if(monat!= 0) {
+					return monat;
+				}
+				return Integer.compare(b1.getTagFromDatum(b1.getDatum()),b2.getTagFromDatum(b2.getDatum()));
+			});
+				
+			
 		
+			
 		
 		System.out.println("Nr. | Datum      | Betrag   | Typ       | Kategorie    | Beschreibung");
 		System.out.println("----|------------|----------|-----------|--------------|-------------");
-		for (int i = 0; i < alleBuchungen.size(); i++) {
-			System.out.format("%3d | %10s | %7.2f€ | %9s | %12s | %s%n", i + 1, alleBuchungen.get(i).getDatum(),
-					alleBuchungen.get(i).getBetrag(), alleBuchungen.get(i).getTyp(),
-					alleBuchungen.get(i).getKategorie(), alleBuchungen.get(i).getBeschreibung());
+		for (int j = 0; j < alleBuchungen.size(); j++) {
+			System.out.format("%3d | %10s | %7.2f€ | %9s | %12s | %s%n", j + 1, alleBuchungen.get(j).getDatum(),
+					alleBuchungen.get(j).getBetrag(), alleBuchungen.get(j).getTyp(),
+					alleBuchungen.get(j).getKategorie(), alleBuchungen.get(j).getBeschreibung());
 		}
-	}
+		}
+		}
+	
 
 	public void buchungLöschen(int nummer) {
 		if (nummer < 1 || nummer > alleBuchungen.size()) {
